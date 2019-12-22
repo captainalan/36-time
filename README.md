@@ -1,3 +1,5 @@
+Online on [Github Pages](https://captainalan.github.io/36-time/).
+
 Prompt
 ------
 write a function, that takes a string of the form "hh:mm:ss" that is
