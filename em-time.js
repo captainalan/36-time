@@ -4,14 +4,21 @@ function emTime(input_time) {
     if (!standard_24h_time_validp(input_time)) {
 	return null; // Do nothing if input string is not in correct format
     }
-    return ""; // Change this so it returns the correct string
+
+    // For now, assume input_time in format hh:mm:ss
+    //                                      01234567
+    // Should be 24 hr time.
+    return em_time_from_percent_through_day(
+	standard_24h_time_percent_through_day(input_time)
+    );
 };
+
 // ez hax--->take c code convert to js
 
 /* Helper functions */
 function standard_24h_time_validp() {
     // TODO do validation for realizies---use regexp?
-    return false;
+    return true;
 };
 
 function standard_24h_time_percent_through_day(input_time) {
@@ -51,8 +58,7 @@ function em_time_from_percent_through_day(percent_through_day){
 
     return [emHours, emMinutes, emSeconds]
 	.map(x => {
-	    console.log("x: ", x, "length", x.length);
-	    if (x < 6) {
+	    if (("" + x).length == 1) { // eww implicit conversion
 		return "0" + x; // Add extra zero to single digits
 	    } else {
 		return x;
@@ -93,6 +99,7 @@ function base_six_string_from_number(n) {
 }
 
 /* Diagnostic test as I go stuff*/
+/* TODO delete testing code
 console.log("should be 1/2", standard_24h_time_percent_through_day("12:00:00"));
 console.log(em_time_from_percent_through_day(0.5));
 console.log(em_time_from_percent_through_day(0.35));
@@ -100,3 +107,8 @@ console.log("Should be 10", base_six_string_from_number(6));
 console.log("Should be 11", base_six_string_from_number(7));
 console.log("Should be 100", base_six_string_from_number(36));
 console.log("Should be 0", base_six_string_from_number(0));
+
+console.log("Expecting 18:00:00.", emTime("12:00:00"));
+console.log("Expecting 27:00:00.", emTime("18:00:00"));
+console.log("Expecting 35:03:01", emTime("23:23:23"));
+*/
