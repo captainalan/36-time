@@ -12,10 +12,6 @@ test('00:01:00 in emTime is 00:00:52', () => {
     expect(thirty_six.emTime('00:01:00')).toBe('00:00:52');
 });
 
-test('00:01:00 in emTime is 00:52:00', () => {
-    expect(thirty_six.emTime('00:01:00')).toBe('00:00:52');
-});
-
 test('14:36:31 in emTime is 33:52:51', () => {
     expect(thirty_six.emTime('14:36:31')).toBe('33:52:51');
 });
