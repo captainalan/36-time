@@ -100,23 +100,8 @@ function base_six_string_from_number(n) {
     }
 }
 
-/* Diagnostic test as I go stuff*/
-/* TODO delete testing code
-console.log("should be 1/2", standard_24h_time_percent_through_day("12:00:00"));
-console.log(em_time_from_percent_through_day(0.5));
-console.log(em_time_from_percent_through_day(0.35));
-console.log("Should be 10", base_six_string_from_number(6));
-console.log("Should be 11", base_six_string_from_number(7));
-console.log("Should be 100", base_six_string_from_number(36));
-console.log("Should be 0", base_six_string_from_number(0));
-
-console.log("Expecting 00:00:00. Actual", emTime("00:00:00"));
-console.log("Expecting 00:00:24. Actual", emTime("00:00:30"));
-console.log("Expecting 00:52:00. Actual", emTime("00:01:00"));
-console.log("Expecting 00:43:00. Actual", emTime("00:30:00"));
-console.log("Expecting 01:30:00. Actual", emTime("01:00:00"));
-console.log("Expecting 30:00:00. Actual", emTime("12:00:00"));
-console.log("Expecting 31:30:00. Actual", emTime("13:00:00"));
-console.log("Expecting 31:50:45. Actual", emTime("13:14:15"));
-console.log("Expecting 40:00:00. Actual", emTime("16:00:00"));
-*/
+// module export stuff
+exports.emTime = emTime;
+exports.standard_24h_time_validp = standard_24h_time_validp;
+exports.standard_24h_time_percent_through_day = standard_24h_time_percent_through_day;
+exports.em_time_from_percent_through_day = em_time_from_percent_through_day;

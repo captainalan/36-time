@@ -39,13 +39,22 @@ and ss.
 ;; "40:00:00"
 ```
 
+Running tests
+-------------
+
+You'll need `npm`. After installing the `jest` testing library by
+doing `npm install`, do `npm run test` from this directory.
+
 Emily's implementation tips
 ---------------------------
-the general technique that I use to do the
-conversion is work out as a percentage how far through the day we
-are in the input of 24 hours - then convert that percentage into
-EmTime - so 24H->day%->EmTime this is implemented in my elisp code
-above
+
+I followed this general approach
+
+> the general technique that I use to do the
+> conversion is work out as a percentage how far through the day we
+> are in the input of 24 hours - then convert that percentage into
+> EmTime - so 24H->day%->EmTime this is implemented in my elisp code
+> above
 
 Things I learned
 ----------------

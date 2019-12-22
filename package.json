@@ -1,0 +1,23 @@
+{
+  "name": "em-time",
+  "version": "1.0.0",
+  "description": "Online on [Github Pages](https://captainalan.github.io/36-time/).",
+  "main": "em-time.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/captainalan/36-time.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/captainalan/36-time/issues"
+  },
+  "homepage": "https://github.com/captainalan/36-time#readme",
+  "devDependencies": {
+    "jest": "^24.9.0"
+  }
+}
