@@ -54,14 +54,16 @@ function em_time_from_percent_through_day(percent_through_day){
 
     const emHours   = Math.floor(emSeconds_input / (36 * 36));
     const emMinutes = Math.floor((emSeconds_input - (emHours * (36*36))) / 36);
-    const emSeconds = emSeconds_input % 36;
+    const emSeconds = (emSeconds_input % 36);
 
     return [emHours, emMinutes, emSeconds]
 	.map(x => {
-	    if (("" + x).length == 1) { // eww implicit conversion
-		return "0" + x; // Add extra zero to single digits
+	    // Convert to base 6; better way is probably to use JS standard toString(base)
+	    let converted = base_six_string_from_number(x);
+	    if (("" + converted).length == 1) { // eww implicit conversion
+		return "0" + converted; // Add extra zero to single digits
 	    } else {
-		return x;
+		return converted;
 	    }
 	})
 	.join(':');
@@ -71,8 +73,8 @@ function base_six_string_from_number(n) {
     // Assume n is an int, >= 0
     let remainder = n;
 
-    // Iteratively build up array, combine to string when returning 
-    let to_return_array = []; 
+    // Iteratively build up array, combine to string when returning
+    let to_return_array = [];
 
     // Find maximum exponent needed...
     let max_power = 0;
@@ -108,7 +110,13 @@ console.log("Should be 11", base_six_string_from_number(7));
 console.log("Should be 100", base_six_string_from_number(36));
 console.log("Should be 0", base_six_string_from_number(0));
 
-console.log("Expecting 18:00:00.", emTime("12:00:00"));
-console.log("Expecting 27:00:00.", emTime("18:00:00"));
-console.log("Expecting 35:03:01", emTime("23:23:23"));
+console.log("Expecting 00:00:00. Actual", emTime("00:00:00"));
+console.log("Expecting 00:00:24. Actual", emTime("00:00:30"));
+console.log("Expecting 00:52:00. Actual", emTime("00:01:00"));
+console.log("Expecting 00:43:00. Actual", emTime("00:30:00"));
+console.log("Expecting 01:30:00. Actual", emTime("01:00:00"));
+console.log("Expecting 30:00:00. Actual", emTime("12:00:00"));
+console.log("Expecting 31:30:00. Actual", emTime("13:00:00"));
+console.log("Expecting 31:50:45. Actual", emTime("13:14:15"));
+console.log("Expecting 40:00:00. Actual", emTime("16:00:00"));
 */

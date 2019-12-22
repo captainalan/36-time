@@ -8,6 +8,37 @@ where the output is em time, where hh ranges from 0 to 35, but is in
 heximal number notation (where digits are 0 to 5 only). Similar for mm
 and ss.
 
+```
+;; Sample correct values for reference
+
+(emi/sen "00:00:00")
+;; "00:00:00"
+
+(emi/sen "00:00:30")
+;; "00:00:24"
+
+(emi/sen "00:01:00")
+;; "00:00:52"
+
+(emi/sen "00:30:00")
+;; "00:43:00"
+
+(emi/sen "01:00:00")
+ ;; "01:30:00"
+
+(emi/sen "12:00:00")
+;; "30:00:00"
+
+(emi/sen "13:00:00")
+;; "31:30:00"
+
+(emi/sen "13:14:15")
+;; "31:50:45"
+
+(emi/sen "16:00:00")
+;; "40:00:00"
+```
+
 Emily's implementation tips
 ---------------------------
 the general technique that I use to do the
@@ -19,3 +50,4 @@ above
 Things I learned
 ----------------
 - just found you can use `Number.toString(base)`... aiyaaa wrote this myself here for 6
+- ^ woops turns out I needed that for a quick fix
